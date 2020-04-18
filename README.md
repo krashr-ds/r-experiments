@@ -1,3 +1,6 @@
-# r
-# r lesson code for Coursera & DataCamp
-# Kyle P. Rasku RN; Programmer & Data Analyst
+# r code
+# DataCamp lesson code, dplyr, ggplot2
+# UC Davis analysis projects
+# and some of mine, too
+#
+# KPR
