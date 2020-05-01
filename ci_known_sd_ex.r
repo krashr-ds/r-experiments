@@ -27,6 +27,16 @@ m + (1.9720 * s)
 m - (1.9720 * s)
 
 # ANOTHER EXAMPLE
+# You can calculate a confidence interval, say a 95% confidence interval, 
+# by taking the mean and adding and subtracting its standard error multiplied 
+# by the given t value or z value. Usually confidence intervals are expressed as 
+# a two-sided range as we will also do in this exercise.
+
+#A 95% confidence intervals can be interpreted as that we are 95% confident that 
+# this interval will contain our population statistic. Take our last example where 
+# we found a standard error of 0.71, a population mean of 185, and a sample mean 
+# of 186.5. As the sample size was 50, our relevant degrees of freedom were 49.
+
 # calculate the t value and store it in the variable t_value
 t_value <- round(qt(.975,49),2)
 
