@@ -57,6 +57,16 @@ posts_with_tags <- bind_rows(questions_with_tags %>% mutate(type = "question"),
                               answers_with_tags %>% mutate(type = "answer"))
 
 # Add a year column, then aggregate by type, year, and tag_name
+#NOTE: WHEN SOME OF THESE LESSONS SAY "AGGREGATE" THEY MEAN COUNT!! (not group_by)
 posts_with_tags %>%
   mutate(year = year(creation_date)) %>%
   count(type, year, tag_name)
+
+# Filter for the dplyr and ggplot2 tag names 
+by_type_year_tag_filtered <- by_type_year_tag %>%
+  filter(tag_name == 'dplyr' | tag_name == 'ggplot2')
+
+# Create a line plot faceted by the tag name 
+ggplot(by_type_year_tag_filtered, aes(x = year, y = n, color = type)) +
+  geom_line() +
+  facet_wrap(~ tag_name)
