@@ -24,3 +24,5 @@ colors_joined <- batman_colors %>%
          total = total_batman + total_star_wars) %>%
   filter(total >= 200) %>%
   mutate(name = fct_reorder(name, difference)) 
+
+
