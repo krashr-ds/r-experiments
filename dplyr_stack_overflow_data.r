@@ -42,3 +42,13 @@ tagged_answers %>%
               average_answers =mean(n)) %>%
 	# Sort the questions in descending order
     arrange(desc(questions))
+
+# Inner join the question_tags and tags tables with the questions table
+questions %>%
+  inner_join(question_tags, by = c("id" = "question_id")) %>%
+  inner_join(tags, by = c("tag_id" = "id"))
+
+# Inner join the question_tags and tags tables with the answers table
+answers %>%
+  inner_join(question_tags, by = c("question_id" = "question_id")) %>%
+  inner_join(tags, by = c("tag_id" = "id"))
