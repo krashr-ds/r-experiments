@@ -14,3 +14,16 @@ questions %>%
 	inner_join(answers, by = c("id" = "question_id"), suffix = c("_question", "_answer")) %>%
 	# Subtract creation_date_question from creation_date_answer to create gap
 	mutate(gap = as.integer(creation_date_answer - creation_date_question))
+
+# Count and sort the question id column in the answers table
+answer_counts <- answers %>%
+  group_by(question_id) %>%
+  summarize(n = sum(n()))
+
+
+# Combine the answer_counts and questions tables
+questions %>% 
+  left_join(answer_counts, by = c("id" = "question_id")) %>%
+	
+	# Replace the NAs in the n column
+replace_na(list(n=0))
