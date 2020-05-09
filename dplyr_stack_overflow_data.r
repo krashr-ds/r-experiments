@@ -8,3 +8,9 @@ questions_with_tags %>%
           	  num_questions = n()) %>%
 	# Sort num_questions in descending order
 	arrange(desc(num_questions))
+
+questions %>%
+	# Inner join questions and answers with proper suffixes
+	inner_join(answers, by = c("id" = "question_id"), suffix = c("_question", "_answer")) %>%
+	# Subtract creation_date_question from creation_date_answer to create gap
+	mutate(gap = as.integer(creation_date_answer - creation_date_question))
