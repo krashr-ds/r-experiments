@@ -1,3 +1,6 @@
+#Uses library(broom)
+#Where mod is lm object
+
 # View summary of model
 summary(mod)
 
