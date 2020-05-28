@@ -1,6 +1,6 @@
 # Compute groupwise measures of spread
 gap2007 %>%
-  group_by(country) %>%
+  group_by(continent) %>%
   summarize(sd(lifeExp),
             IQR(lifeExp),
             n())
